@@ -1,0 +1,16 @@
+for(int y=0; y<image.rows(); y++)
+{	
+ 	for(int x=0; x<image.cols();  x++)  // Bütün pikselleri gezmemizi sağlayan döngü
+	{
+		double[] data = image.get(y,x);
+data[0] = (data[0] + data[1] + data[2]) / 3; 
+data[1] = (data[0] + data[1] + data[2]) / 3;
+data[2] = (data[0] + data[1] + data[2]) / 3;
+image.put(y, x, data);
+		}
+	}
+//////////İKİNCİ VE KOLAY YÖNTEM 
+Renk uzayları arası dönüşüm işlemleri için farklı olarak imgproc sınıfı içerisindeki cvtColor() metodu kullanılabilir.
+cvtColor metodu parametre olarak iki adet mat nesnesi ve dönüşüm yapılacak olan renk uzayını almaktadır.
+
+Imgproc.cvtColor(kaynak, hedef, Imgproc.COLOR_RGB2GRAY);
