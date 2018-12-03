@@ -1,0 +1,11 @@
+for(int y=0; y<image.rows(); y++)
+{	
+ 	for(int x=0; x<image.cols();  x++)  // Bütün pikselleri gezmemizi sağlayan döngü
+	{
+		double[] data = image.get(y,x);
+data[0] = (data[0] + data[1] + data[2]) / 3; 
+data[1] = (data[0] + data[1] + data[2]) / 3;
+data[2] = (data[0] + data[1] + data[2]) / 3;
+image.put(y, x, data);
+		}
+	}
