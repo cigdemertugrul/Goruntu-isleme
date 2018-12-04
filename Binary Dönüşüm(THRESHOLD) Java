@@ -1,0 +1,30 @@
+public void threshold(){
+		int threshold=100;
+		//Imgproc.cvtColor(image, image, Imgproc.COLOR_RGB2GRAY);
+		int siyah=0;
+		int beyaz=255;
+		Imgproc.cvtColor(image, image, Imgproc.COLOR_RGB2GRAY);//Griye Dönüştürme
+		for(int y=0; y<image.rows(); y++)
+		{	
+		 	for(int x=0; x<image.cols();  x++)  // Bütün pikselleri gezmemizi sağlayan döngü
+			{
+				
+		 		double[] data = image.get(y,x);
+		 		if (data[0] >= threshold && data[0]<=120) 
+		 			 { data[0]=255;
+		 			   data[1]=255;
+		 			   data[2]=255;}
+                else {
+                	 data[0]=0;
+	 			     data[1]=0;
+	 			     data[2]=0;}
+		 		image.put(y, x, data);
+		 		
+
+				}
+			}
+
+		
+	}
+Kısa Java kodu olarak
+Imgproc.threshold(image, image, 100, 255, Imgproc.THRESH_BINARY); şeklinde kullanılabilir.
